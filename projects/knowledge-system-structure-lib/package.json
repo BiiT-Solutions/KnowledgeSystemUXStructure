@@ -1,0 +1,16 @@
+{
+  "name": "knowledge-system-structure-lib",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "authorization-services-lib": "latest",
+    "@angular/common": "v15-lts",
+    "@angular/core": "v15-lts"
+  },
+  "scripts": {
+    "increase-version": "npm --no-git-tag-version version patch"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
