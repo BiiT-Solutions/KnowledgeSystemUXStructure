@@ -1,4 +1,5 @@
 import {ElementDto} from "authorization-services-lib";
+import {Categorization} from "./categorization";
 
 export class FileEntry extends ElementDto {
   override id: string;
@@ -8,6 +9,9 @@ export class FileEntry extends ElementDto {
   fileName: string;
   fileFormat: string;
   filePath: string;
+  public: boolean;
+  publicUrl: string;
+  categorizations: Categorization[] = [];
 
   public static override copy(from: FileEntry, to: FileEntry): void {
     super.copy(from, to);
@@ -18,6 +22,9 @@ export class FileEntry extends ElementDto {
     to.fileName = from.fileName;
     to.fileFormat = from.fileFormat;
     to.filePath = from.filePath;
+    to.public = !!from.public;
+    to.publicUrl = from.publicUrl;
+    to.categorizations = from.categorizations ? from.categorizations.map(Categorization.clone) : [];
   }
   public static override clone(from: FileEntry): FileEntry {
     const to: FileEntry = new FileEntry();

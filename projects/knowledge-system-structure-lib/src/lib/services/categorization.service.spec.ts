@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import {FileEntryService} from "./file-entry.service";
+import {CategorizationService} from "./categorization.service";
 
-describe('FileEntryService', () => {
-  let service: FileEntryService;
+describe('CategorizationService', () => {
+  let service: CategorizationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FileEntryService);
+    service = TestBed.inject(CategorizationService);
   });
 
   it('should be created', () => {

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {KnowledgeSystemRootService} from "./knowledge-system-root.service";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient,} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {FileEntry} from "../models/file-entry";
-import {User} from "authorization-services-lib";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +21,22 @@ export class StreamService {
   }
   downloadFileByPath(path: string): Observable<Blob> {
     return this.httpClient.get<Blob>(`${this.rootService.serverUrl}${StreamService.ROOT_PATH}/path/${path}`,
+      {
+        responseType: 'blob' as 'json',
+        observe: 'body',
+        headers: {'Content-Type': 'application/json'}
+      });
+  }
+  downloadPublicFileByUuid(uuid: string): Observable<Blob> {
+    return this.httpClient.get<Blob>(`${this.rootService.serverUrl}${StreamService.ROOT_PATH}/public/file-entry/uuid/${uuid}`,
+      {
+        responseType: 'blob' as 'json',
+        observe: 'body',
+        headers: {'Content-Type': 'application/json'}
+      });
+  }
+  downloadPublicFileByPath(path: string): Observable<Blob> {
+    return this.httpClient.get<Blob>(`${this.rootService.serverUrl}${StreamService.ROOT_PATH}/public/path/${path}`,
       {
         responseType: 'blob' as 'json',
         observe: 'body',
