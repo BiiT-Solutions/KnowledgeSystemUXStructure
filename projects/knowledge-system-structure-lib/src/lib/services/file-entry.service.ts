@@ -29,7 +29,7 @@ export class FileEntryService {
   upload(file: File): Observable<HttpEvent<FileEntry>> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/upload`, file, {
+    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/upload`, formData, {
       reportProgress: true,
       observe: "events"
     });
