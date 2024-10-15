@@ -4,6 +4,7 @@ import {Categorization} from "./categorization";
 export class FileEntry extends ElementDto {
   override id: string;
   uuid: string;
+  alias: string;
   description: string;
   mimeType: string;
   fileName: string;
@@ -17,6 +18,7 @@ export class FileEntry extends ElementDto {
     super.copy(from, to);
     to.id = from.id;
     to.uuid = from.uuid;
+    to.alias = from.alias;
     to.description = from.description;
     to.mimeType = from.mimeType;
     to.fileName = from.fileName;
