@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {KnowledgeSystemRootService} from "./knowledge-system-root.service";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FileEntry} from "../models/file-entry";
 
@@ -26,8 +26,13 @@ export class FileEntryService {
 
   constructor(private rootService: KnowledgeSystemRootService, private httpClient: HttpClient) { }
 
-  upload(file: File): Observable<FileEntry> {
-    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/upload`, file);
+  upload(file: File): Observable<HttpEvent<FileEntry>> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/upload`, file, {
+      reportProgress: true,
+      observe: "events"
+    });
   }
   update(file: FileEntry): Observable<FileEntry> {
     return this.httpClient.put<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}`, file);
