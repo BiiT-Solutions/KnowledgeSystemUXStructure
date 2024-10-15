@@ -27,7 +27,7 @@ export class FileEntryService {
   constructor(private rootService: KnowledgeSystemRootService, private httpClient: HttpClient) { }
 
   upload(file: File): Observable<FileEntry> {
-    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}`, file);
+    return this.httpClient.post<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/upload`, file);
   }
   update(file: FileEntry): Observable<FileEntry> {
     return this.httpClient.put<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}`, file);
