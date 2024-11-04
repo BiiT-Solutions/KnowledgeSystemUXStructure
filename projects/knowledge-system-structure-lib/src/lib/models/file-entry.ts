@@ -12,6 +12,7 @@ export class FileEntry extends ElementDto {
   filePath: string;
   public: boolean;
   publicUrl: string;
+  thumbnailUrl: string;
   categorizations: Categorization[] = [];
 
   public static override copy(from: FileEntry, to: FileEntry): void {
@@ -26,6 +27,7 @@ export class FileEntry extends ElementDto {
     to.filePath = from.filePath;
     to.public = !!from.public;
     to.publicUrl = from.publicUrl;
+    to.thumbnailUrl = from.thumbnailUrl;
     to.categorizations = from.categorizations ? from.categorizations.map(Categorization.clone) : [];
   }
   public static override clone(from: FileEntry): FileEntry {
