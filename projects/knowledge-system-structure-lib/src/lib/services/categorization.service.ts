@@ -29,8 +29,8 @@ export class CategorizationService {
   create(categorization: Categorization): Observable<Categorization> {
     return this.httpClient.post<Categorization>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}`, categorization);
   }
-  createByName(categorizationName: string): Observable<Categorization> {
-    return this.httpClient.put<Categorization>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}/${categorizationName}`, {});
+  createByName(name: string): Observable<Categorization> {
+    return this.httpClient.put<Categorization>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}/name/${name}`, {});
   }
   createBatch(categorizations: Categorization[]): Observable<Categorization[]> {
     return this.httpClient.post<Categorization[]>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}/list`, categorizations);
@@ -46,5 +46,8 @@ export class CategorizationService {
   }
   search(query: string, index?: number, limit?: number): Observable<Categorization[]> {
     return this.httpClient.get<Categorization[]>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}/search/${query}`, {params: this.cursorParams(index, limit)});
+  }
+  find(name: string): Observable<Categorization> {
+    return this.httpClient.get<Categorization>(`${this.rootService.serverUrl}${CategorizationService.ROOT_PATH}/name/${name}`);
   }
 }
