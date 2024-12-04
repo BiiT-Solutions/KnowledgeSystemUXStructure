@@ -7,7 +7,7 @@ export class FileEntry extends ElementDto {
   alias: string;
   description: string;
   mimeType: string;
-  fileName: string;
+  name: string;
   fileFormat: string;
   filePath: string;
   public: boolean;
@@ -22,7 +22,7 @@ export class FileEntry extends ElementDto {
     to.alias = from.alias;
     to.description = from.description;
     to.mimeType = from.mimeType;
-    to.fileName = from.fileName;
+    to.name = from.name;
     to.fileFormat = from.fileFormat;
     to.filePath = from.filePath;
     to.public = !!from.public;
