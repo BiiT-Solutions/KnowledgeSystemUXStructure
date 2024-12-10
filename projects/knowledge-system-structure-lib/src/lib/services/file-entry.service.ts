@@ -3,6 +3,7 @@ import {KnowledgeSystemRootService} from "./knowledge-system-root.service";
 import {HttpClient, HttpEvent, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FileEntry} from "../models/file-entry";
+import {FileEntryQuery} from "../models/file-entry-query";
 
 @Injectable({
   providedIn: 'root'
@@ -52,8 +53,8 @@ export class FileEntryService {
   getByCategorization(categorizationName: string, index?: number, limit?: number ): Observable<FileEntry> {
     return this.httpClient.get<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/categories/${categorizationName}`, {params: this.cursorParams(index, limit)});
   }
-  search(query: string, index?: number, limit?: number): Observable<FileEntry[]> {
-    return this.httpClient.get<FileEntry[]>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/search/${query}`, {params: this.cursorParams(index, limit)});
+  search(query: FileEntryQuery, index?: number, limit?: number): Observable<FileEntry[]> {
+    return this.httpClient.post<FileEntry[]>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/search`, query, {params: this.cursorParams(index, limit)});
   }
   downloadFileByUuid(uuid: string): Observable<Blob> {
     return this.httpClient.get<Blob>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/download/${uuid}`,

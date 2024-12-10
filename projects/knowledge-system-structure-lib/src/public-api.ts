@@ -1,4 +1,5 @@
 export * from './lib/models/file-entry';
+export * from './lib/models/file-entry-query';
 export * from './lib/models/categorization';
 
 export * from './lib/services/file-entry.service';
