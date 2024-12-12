@@ -44,11 +44,11 @@ export class FileEntryService {
   deleteByUuid(uuid: string): Observable<void> {
     return this.httpClient.delete<void>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/${uuid}`);
   }
-  getAll(index?: number, limit?: number): Observable<{response: FileEntry[], total: number}> {
+  getAll(index?: number, limit?: number): Observable<{files: FileEntry[], total: number}> {
     return this.httpClient.get<FileEntry[]>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}`, {params: this.cursorParams(index, limit), observe: 'response'})
       .pipe(map(response => {
         return {
-          response: response.body,
+          files: response.body,
           total: Number.parseFloat(response.headers.get('X-Total-Elements'))
         }
       }));
@@ -59,11 +59,11 @@ export class FileEntryService {
   getByCategorization(categorizationName: string, index?: number, limit?: number ): Observable<FileEntry> {
     return this.httpClient.get<FileEntry>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/categories/${categorizationName}`, {params: this.cursorParams(index, limit)});
   }
-  search(query: FileEntryQuery, index?: number, limit?: number): Observable<{response: FileEntry[], total: number}> {
+  search(query: FileEntryQuery, index?: number, limit?: number): Observable<{files: FileEntry[], total: number}> {
     return this.httpClient.post<FileEntry[]>(`${this.rootService.serverUrl}${FileEntryService.ROOT_PATH}/search`, query, {params: this.cursorParams(index, limit), observe: 'response'})
       .pipe(map(response => {
         return {
-          response: response.body,
+          files: response.body,
           total: Number.parseFloat(response.headers.get('X-Total-Elements'))
         }
       }));
