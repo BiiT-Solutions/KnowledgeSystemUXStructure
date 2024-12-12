@@ -49,7 +49,7 @@ export class FileEntryService {
       .pipe(map(response => {
         return {
           files: response.body,
-          total: Number.parseFloat(response.headers.get('X-Total-Elements'))
+          total: Number.parseFloat(response.headers.get('x-total-elements'))
         }
       }));
   }
@@ -64,7 +64,7 @@ export class FileEntryService {
       .pipe(map(response => {
         return {
           files: response.body,
-          total: Number.parseFloat(response.headers.get('X-Total-Elements'))
+          total: Number.parseFloat(response.headers.get('x-total-elements'))
         }
       }));
   }
