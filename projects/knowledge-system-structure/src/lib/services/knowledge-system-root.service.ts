@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {RootPath} from 'authorization-services-lib';
+import {RootPath} from '@biit-solutions/authorization-services';
 
 @Injectable({
   providedIn: 'root'

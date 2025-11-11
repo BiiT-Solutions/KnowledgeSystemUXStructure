@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "knowledge-system-structure-lib": {
+    "knowledge-system-structure": {
       "projectType": "library",
-      "root": "projects/knowledge-system-structure-lib",
-      "sourceRoot": "projects/knowledge-system-structure-lib/src",
+      "root": "projects/knowledge-system-structure",
+      "sourceRoot": "projects/knowledge-system-structure/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/knowledge-system-structure-lib/ng-package.json"
+            "project": "projects/knowledge-system-structure/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/knowledge-system-structure-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/knowledge-system-structure/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/knowledge-system-structure-lib/tsconfig.lib.json"
+              "tsConfig": "projects/knowledge-system-structure/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/knowledge-system-structure-lib/tsconfig.spec.json",
+            "tsConfig": "projects/knowledge-system-structure/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

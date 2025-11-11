@@ -3,8 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "appointment-center-structure-lib": [
-        "dist/appointment-center-structure-lib"
+      "knowledge-system-structure": [
+        "dist/knowledge-system-structure"
       ]
     },
     "baseUrl": "./",
