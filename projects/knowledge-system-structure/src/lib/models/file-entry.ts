@@ -1,4 +1,4 @@
-import {ElementDto} from "authorization-services-lib";
+import {ElementDto} from "@biit-solutions/authorization-services";
 import {Categorization} from "./categorization";
 
 export class FileEntry extends ElementDto {
