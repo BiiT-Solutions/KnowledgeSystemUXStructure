@@ -1,6 +1,6 @@
 {
   "name": "@biit-solutions/knowledge-system-structure",
-  "version": "0.0.18",
+  "version": "0.2.0",
   "peerDependencies": {
     "@biit-solutions/authorization-services": "latest",
     "@angular/common": "v15-lts",
